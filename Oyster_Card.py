@@ -70,6 +70,7 @@ class OysterCard:
         print(f"Swiped out at {station.name}. Fare adjusted to £{actual_fare}. Refund: £{refund}. Current balance: £{self.balance}")
         self.current_journey = None
 
+
     def calculate_fare(self, start_station, end_station):
         # Copy the start and end zones to modify them if Earl's Court is involved
         start_zones = set(start_station.zones)
@@ -130,27 +131,27 @@ class OysterCard:
         print(f"Bus fare of £{self.BUS_FARE} charged. Current balance: £{self.balance}")
 
 
-if __name__ == "__main__":
-    # Define stations
-    holborn = Station("Holborn", [1])
-    earls_court = Station("Earl's Court", [1, 2])
-    hammersmith = Station("Hammersmith", [2])
-    wimbledon = Station('Wimbledon', [3])
+# if __name__ == "__main__":
+#     # Define stations
+#     holborn = Station("Holborn", [1])
+#     earls_court = Station("Earl's Court", [1, 2])
+#     hammersmith = Station("Hammersmith", [2])
+#     wimbledon = Station('Wimbledon', [3])
 
-    # Initialize Oyster card with £30
-    card = OysterCard(balance=30)
-    print(f"Initial balance: £{card.balance}")
+#     # Initialize Oyster card with £30
+#     card = OysterCard(balance=30)
+#     print(f"Initial balance: £{card.balance}")
 
-    # 1. Tube: Holborn to Earl’s Court
-    card.swipe_in(holborn)
-    card.swipe_out(earls_court)  # Should charge £2.50
-    print(f"Balance after Holborn to wimbledon: £{card.balance}")
+#     # 1. Tube: Holborn to Earl’s Court
+#     card.swipe_in(holborn)
+#     card.swipe_out(earls_court)  # Should charge £2.50
+#     print(f"Balance after Holborn to wimbledon: £{card.balance}")
 
-    # 2. Bus: 328 bus from Earl’s Court to Chelsea (Fixed fare)
-    card.take_bus()
-    print(f"Balance after bus journey: £{card.balance}")
+#     # 2. Bus: 328 bus from Earl’s Court to Chelsea (Fixed fare)
+#     card.take_bus()
+#     print(f"Balance after bus journey: £{card.balance}")
 
-    # 3. Tube: Earl’s Court to Hammersmith
-    card.swipe_in(earls_court)
-    card.swipe_out(wimbledon)  # Should charge £2.25
-    print(f"Final balance: £{card.balance}")
+#     # 3. Tube: Earl’s Court to Hammersmith
+#     card.swipe_in(earls_court)
+#     card.swipe_out(wimbledon)  # Should charge £2.25
+#     print(f"Final balance: £{card.balance}")
